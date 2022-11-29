@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var text: String = "wait"
     var body: some View {
-        Text("Hello, world!")
+        Text(text)
             .padding()
+            .task {
+                await sleepFunc()
+            }
+    }
+    
+    private func sleepFunc() async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            text = "Async"
+        }
     }
 }
 
