@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var text: String = "wait"
+    @State var text: String = "await"
     var body: some View {
         Text(text)
             .padding()
